@@ -21,7 +21,6 @@
      yellow wire        P2.3
      blue wire          P6.7
 */
-//qi was here
 // Load libraries used
 #include "SimpleRSLK.h"
 #include <Servo.h>
