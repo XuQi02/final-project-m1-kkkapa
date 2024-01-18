@@ -29,3 +29,44 @@ void forward() {
 void stop() {
     disableMotor(BOTH_MOTORS);
 }
+
+void backward(){
+    enableMotor(BOTH_MOTORS);
+    setMotorDirection(LEFT_MOTOR, MOTOR_DIR_BACKWARD);
+    setMotorDirection(RIGHT_MOTOR, MOTOR_DIR_BACKWARD);
+    setMotorSpeed(BOTH_MOTORS, fastSpeed);
+}
+
+void turnleft(){
+    enableMotor(BOTH_MOTORS);
+    setMotorDirection(LEFT_MOTOR, MOTOR_DIR_FORWARD);
+    setMotorDirection(RIGHT_MOTOR, MOTOR_DIR_FORWARD);
+    setMotorSpeed(LEFT_MOTOR, lowSpeed);
+    setMotorSpeed(RIGHT_MOTOR, fastSpeed);
+}
+
+void turnright(){
+    enableMotor(BOTH_MOTORS);
+    setMotorDirection(LEFT_MOTOR, MOTOR_DIR_FORWARD);
+    setMotorDirection(RIGHT_MOTOR, MOTOR_DIR_FORWARD);
+    setMotorSpeed(LEFT_MOTOR, fastSpeed);
+    setMotorSpeed(RIGHT_MOTOR, lowSpeed);
+}
+
+
+void spincounterclock(){
+    enableMotor(BOTH_MOTORS);
+    setMotorDirection(LEFT_MOTOR, MOTOR_DIR_FORWARD);
+    setMotorDirection(RIGHT_MOTOR, MOTOR_DIR_BACKWARD);
+    setMotorSpeed(LEFT_MOTOR, fastSpeed);
+    setMotorSpeed(RIGHT_MOTOR, fastSpeed);
+}
+
+void spinclock(){
+    enableMotor(BOTH_MOTORS);
+    setMotorDirection(LEFT_MOTOR, MOTOR_DIR_BACKWARD);
+    setMotorDirection(RIGHT_MOTOR, MOTOR_DIR_FORWARD);
+    setMotorSpeed(LEFT_MOTOR, fastSpeed);
+    setMotorSpeed(RIGHT_MOTOR, fastSpeed);
+}
+

@@ -124,5 +124,22 @@ void loop() {
     } else if (ps2x.Button(PSB_CROSS)) {
       Serial.println("CROSS button pushed");
       stop();
+    } else if (PSB_PAD_DOWN){
+      Serial.println("DOWN button pushed");
+      backward();
+    } else if (PSB_PAD_LEFT){
+      Serial.println("LEFT button pushed");
+      turnleft();
+    } else if (PSB_PAD_RIGHT){
+      Serial.println("RIGHT button pushed");
+      turnright();
+    } else if (PSB_SQUARE){
+      Serial.println("SQUARE button pushed");
+      spincounterclock();
+    } else if (PSB_CIRCLE){
+      Serial.println("CIRCLE button pushed");
+      spinclock();
+    } else {
+      stop();
     }
   }
