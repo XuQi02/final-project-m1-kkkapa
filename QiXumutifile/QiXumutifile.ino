@@ -91,7 +91,7 @@ enum RemoteMode {
 };
 
 // Declare and initialize the current state variable
-RemoteMode CurrentRemoteMode = PLAYSTATION;
+RemoteMode CurrentRemoteMode = IR_REMOTE;
 
 // Tuning Parameters
 const uint16_t lowSpeed = 15;
@@ -257,8 +257,12 @@ void loop() {
         // Button 8
         else if (IRresults.command == 0x52) {
             Serial.println("Button 8 pressed");
-            myServo.write(140); // Example action for servo
+            myServo.write(140); 
         }
-        // Add additional else if statements for other buttons as needed
+        // Buttn 9
+        else if (IRresults.command == 0x4A){
+            Serial.println("Button 8 pressed");
+            myServo.write(40);
+        }
     }
 }
