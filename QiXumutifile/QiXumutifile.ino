@@ -98,24 +98,12 @@ const uint16_t fastSpeed = 30;
 
 void setup() {
   Serial.begin(57600);
-// Declare and initialize the current state variable
-  Serial.println("0 for playstation and 1 for Ir controller");
-  int choice = Serial.parseInt();
-  if(choice == 0){
-    CurrentRemoteMode  = PLAYSTATION;
-  }
-  
-    else if(choice ==1){
-      CurrentRemoteMode = IR_REMOTE;
-    }
-  
-
   Serial.print("Starting up Robot code...... ");
 
   // Run setup code
   setupRSLK();
   myServo.attach(SRV_0);
-  if (CurrentRemoteMode == 0) {
+  if (CurrentRemoteMode == PLAYSTATION) {
     // using the playstation controller
     Serial.println("Using playstation controller, make sure it is paired first ");
 
@@ -128,23 +116,24 @@ void setup() {
 
     while (error) {
       error = ps2x.config_gamepad(PS2_CLK, PS2_CMD, PS2_SEL, PS2_DAT, pressures, rumble);
-
-      if (error == 0)
+    
+      if (error == 0){
         Serial.println("Found Controller, configured successful ");
-
-      else if (error == 1)
+        CurrentRemoteMode = PLAYSTATION;
+      }else if (error == 1){
         Serial.println("No controller found, check wiring, see readme.txt to enable debug. visit www.billporter.info for troubleshooting tips");
-
-      else if (error == 2)
+        CurrentRemoteMode = IR_REMOTE;
+      }else if (error == 2){
         Serial.println("Controller found but not accepting commands. see readme.txt to enable debug. Visit www.billporter.info for troubleshooting tips");
-
-      else if (error == 3)
+        CurrentRemoteMode = IR_REMOTE;
+      }else if (error == 3){
         Serial.println("Controller refusing to enter Pressures mode, may not support it. ");
+        CurrentRemoteMode = IR_REMOTE;
+      }
       delayMicroseconds(1000 * 1000);
     }
-  } else if (CurrentRemoteMode == 1) {
+  } else if (CurrentRemoteMode == IR_REMOTE) {
     // put start-up code for IR controller here if neccessary
-     // put start-up code for IR controller here if neccessary
     Serial.begin(57600);
     delay(500); // To be able to connect Serial monitor after reset or power up 
     Serial.println(F("START " __FILE__ " from " __DATE__));
@@ -169,11 +158,11 @@ void loop() {
   ps2x.read_gamepad();
 
   // Operate the robot in remote control mode
-  if (CurrentRemoteMode == 0) {
+  if (CurrentRemoteMode == PLAYSTATION) {
     Serial.println("Running remote control with the Playstation Controller");
     RemoteControlPlaystation();
 
-  } else if (CurrentRemoteMode == 1) {
+  } else if (CurrentRemoteMode == IR_REMOTE) {
     // put code here to run using the IR controller if neccessary
     Serial.println("Running remote control with the IR Playstation Controller");
     IRcontrol();
