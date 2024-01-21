@@ -90,8 +90,7 @@ enum RemoteMode {
   IR_REMOTE,
 };
 
-// Declare and initialize the current state variable
-RemoteMode CurrentRemoteMode = IR_REMOTE;
+RemoteMode CurrentRemoteMode = PLAYSTATION;
 
 // Tuning Parameters
 const uint16_t lowSpeed = 15;
@@ -99,6 +98,18 @@ const uint16_t fastSpeed = 30;
 
 void setup() {
   Serial.begin(57600);
+// Declare and initialize the current state variable
+  Serial.println("0 for playstation and 1 for Ir controller");
+  int choice = Serial.parseInt();
+  if(choice == 0){
+    CurrentRemoteMode  = PLAYSTATION;
+  }
+  
+    else if(choice ==1){
+      CurrentRemoteMode = IR_REMOTE;
+    }
+  
+
   Serial.print("Starting up Robot code...... ");
 
   // Run setup code
