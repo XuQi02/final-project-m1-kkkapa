@@ -217,6 +217,15 @@ void loop() {
   }
 
 
+ //vol+ button  A=0x0 C=0x46
+  //vol- button   A=0x0 C=0x15
+  //left  button  A=0x0 C=0x44
+  //right button A=0x0 C=0x43
+  //4   button  A=0x0 C=0x8
+  //5 button   A=0x0 C=0x1C
+  //6 button  A=0x0 C=0x5A
+  //8 button  A=0x0 C=0x52
+//button 9 C=0x4A
    void IRcontrol() {
     if (irRX.decodeIR(&IRresults)) {
         // Vol+ button
@@ -261,7 +270,7 @@ void loop() {
         }
         // Buttn 9
         else if (IRresults.command == 0x4A){
-            Serial.println("Button 8 pressed");
+            Serial.println("Button 9 pressed");
             myServo.write(40);
         }
     }
