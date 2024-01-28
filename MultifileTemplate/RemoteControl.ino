@@ -1,19 +1,3 @@
-/*
-  RemoteControl.ino - Arduino Sketch for Remote Control of the RLSK robot
-  
-  Description:
-  This sketch provides functions for controlling an RLSK robot using a
-  playstation controller for input. A few actions are programed for an 
-  example. 
-
-  Button map:
-  PAD UP button moves both motors forward
-  CROSS button stops motors
-
-  Created by: Your Name
-  Date: Current Date
-  Version: 1.0
-*/
 
 void RemoteControl() {
  // Read input from PlayStation controller

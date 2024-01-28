@@ -46,12 +46,22 @@ PS2X ps2x;
 
 Servo myservo;
 
+enum AutoState {
+  AUTO_TOWALL,
+  AUTO_LINEFOLLOW,
+  IDLE
+};
+
+AutoState AutoCurrentState = AUTO_TOWALL;
+
+uint16_t distValue; 
+uint16_t distMM; 
+float distIN;
+
 enum RobotState {
   MANUAL,
   AUTONOMOUS
 };
-
-
 
 
 RobotState RobotCurrentState = MANUAL;
