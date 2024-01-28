@@ -47,8 +47,11 @@ PS2X ps2x;
 Servo myservo;
 
 enum AutoState {
-  AUTO_TOWALL,
-  AUTO_LINEFOLLOW,
+  START,
+  AUTO_ACTION1,
+  AUTO_ACTION2,
+  AUTO_ACTION3,
+  AUTO_ACTION4,
   IDLE
 };
 

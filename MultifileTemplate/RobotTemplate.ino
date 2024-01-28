@@ -23,7 +23,7 @@ void updateStateMachine() {
         // go to manual state when square button pushed
         RobotCurrentState = MANUAL;
         // reset autonomous state to start state for the next time
-        AutoCurrentState = AUTO_TOWALL; 
+        AutoCurrentState = START; 
       }
 
       break;
