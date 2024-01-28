@@ -1,6 +1,4 @@
-
 uint8_t SensorPos = 1; // sets the sensor pin used
-
 
 
 void LaserSensor() {

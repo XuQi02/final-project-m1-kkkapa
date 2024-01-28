@@ -7,7 +7,6 @@ void RemoteControl() {
   RemoteControlPlaystation();
 }
 
-
 void RemoteControlPlaystation() {
 
  if (ps2x.Button(PSB_PAD_UP)) {

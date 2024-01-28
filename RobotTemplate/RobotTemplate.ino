@@ -40,7 +40,7 @@
 
 // Create an instance of the playstation controller object
 PS2X ps2x;
-
+Servo myservo;
 // Define high-level state machine
 enum RobotState {
   INITIALIZE,
@@ -101,9 +101,6 @@ void setup() {
     delayMicroseconds(1000 * 1000);
   }
 
-  // set pushbutton on breadboard to use internal pullup resistor
-  pinMode(START_BUTTON, INPUT_PULLUP);
-
 }
 
 void loop() {
@@ -136,7 +133,7 @@ void updateStateMachine() {
 
     case MANUAL:
       Serial.print("in manual state........");
-      if (ps2x.Button(PSB_CIRCLE)) {
+      if (ps2x.Button(PSB_SELECT)) {
         // go to Autonomous state when circle button pushed
         RobotCurrentState = AUTONOMOUS;
       }
@@ -144,7 +141,7 @@ void updateStateMachine() {
 
     case AUTONOMOUS:
       Serial.print("in autonomous state........");
-      if (ps2x.Button(PSB_SQUARE)) {
+      if (ps2x.Button(PSB_START)) {
         // go to manual state when square button pushed
         RobotCurrentState = MANUAL;
         // reset autonomous state to start state for the next time

@@ -60,7 +60,8 @@ float distIN;
 
 enum RobotState {
   MANUAL,
-  AUTONOMOUS
+  AUTONOMOUS,
+  INITIALIZE,
 };
 
 
@@ -127,7 +128,6 @@ void setup() {
     // enable receive feedback and specify LED pin number (defaults to LED_BUILTIN)
     enableRXLEDFeedback(BLUE_LED);
     //linefollowing
-    floorCalibration();
 }
 
 void loop() {
