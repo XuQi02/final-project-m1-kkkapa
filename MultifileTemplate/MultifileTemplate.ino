@@ -55,7 +55,7 @@ enum AutoState {
   IDLE
 };
 
-AutoState AutoCurrentState = AUTO_TOWALL;
+AutoState AutoCurrentState = START;
 
 uint16_t distValue; 
 uint16_t distMM; 

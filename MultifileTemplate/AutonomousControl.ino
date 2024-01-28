@@ -32,6 +32,11 @@ Serial.println("in the AutonomousControl function");
         Serial.println("in Autonomous mode the current state: AUTO_ACTION2");
         // Add state instructions here
         
+        if (distMM < 200) {
+          stop();
+        } else {
+          forward();
+        }
         delay(1000);  // Placeholder delay
         AutoCurrentState = AUTO_ACTION3;  // Transition to next state
         break;
@@ -39,6 +44,7 @@ Serial.println("in the AutonomousControl function");
       case AUTO_ACTION3:
         Serial.println("in Autonomous mode the current state: AUTO_ACTION3");
         // Add state instructions here
+        spinclock();
         delay(1000);  // Placeholder delay
         AutoCurrentState = AUTO_ACTION4;  // Transition to next state
         break;
@@ -46,6 +52,7 @@ Serial.println("in the AutonomousControl function");
       case AUTO_ACTION4:
         Serial.println("in Autonomous mode the current state: AUTO_ACTION4");
         // Add state instructions here
+        stop();
         delay(1000);  // Placeholder delay
         AutoCurrentState = IDLE;  // Transition to next state
         break;
