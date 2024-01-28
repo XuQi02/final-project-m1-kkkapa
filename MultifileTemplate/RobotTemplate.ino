@@ -25,7 +25,6 @@ void updateStateMachine() {
         // reset autonomous state to start state for the next time
         AutoCurrentState = START; 
       }
-
       break;
   }
 }

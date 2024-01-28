@@ -8,7 +8,6 @@ void RemoteControl() {
 }
 
 void RemoteControlPlaystation() {
-
  if (ps2x.Button(PSB_PAD_UP)) {
       Serial.println("PAD UP button pushed ");
       forward();

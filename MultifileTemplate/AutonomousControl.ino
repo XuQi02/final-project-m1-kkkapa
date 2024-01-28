@@ -11,6 +11,7 @@ Serial.println("in the AutonomousControl function");
       case START:
         Serial.println("in Autonomous mode the current state: START");
         // Add START state instructions here
+        floorCalibration();
         AutoCurrentState = AUTO_ACTION1;  // Transition to next state
         lastActionTime = millis();  // Record the time when the forward state started
         break;
@@ -30,6 +31,7 @@ Serial.println("in the AutonomousControl function");
       case AUTO_ACTION2:
         Serial.println("in Autonomous mode the current state: AUTO_ACTION2");
         // Add state instructions here
+        
         delay(1000);  // Placeholder delay
         AutoCurrentState = AUTO_ACTION3;  // Transition to next state
         break;
@@ -53,7 +55,6 @@ Serial.println("in the AutonomousControl function");
         break;
     }
   }
-
   // The code will exit the while loop when IDLE state is reached
   Serial.println("State: IDLE");
   // Add IDLE state instructions here
