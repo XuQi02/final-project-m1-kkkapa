@@ -45,8 +45,7 @@ Serial.println("in the AutonomousControl function");
       case AUTO_ACTION3:
         Serial.println("in Autonomous mode the current state: AUTO_ACTION3");
         // Add state instructions here
-         if (millis() - lastActionTime >= movementDuration) {
-          spinclock();
+        spinclock();
         delay(1000);  // Placeholder delay
         AutoCurrentState = AUTO_ACTION4;  // Transition to next state
         break;
@@ -77,7 +76,7 @@ Serial.println("in the AutonomousControl function");
          }
          delay(1000);
          myservo.write(40);
-         AutoCurrentState = AUTO_ACTION6;
+         AutoCurrentState = IDLE;
          break; 
 
       default:
