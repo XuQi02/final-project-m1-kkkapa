@@ -3,8 +3,6 @@
 void floorCalibration()
 {
     /* Place Robot On Floor (no line) */
-    delay(2000);
-
     delay(500);
 
     /* Set both motors direction forward */
@@ -16,10 +14,8 @@ void floorCalibration()
 
     /* Must be called prior to using getLinePosition() or readCalLineSensor() */
     calibrateLineSensor(lineColor);
-
     /* Disable both motors */
     disableMotor(BOTH_MOTORS);
-
 
 }
 

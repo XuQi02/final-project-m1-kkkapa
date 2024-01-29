@@ -53,7 +53,6 @@ enum AutoState {
   AUTO_ACTION3,
   AUTO_ACTION4,
   AUTO_ACTION5,
-  AUTO_ACTION6,
   IDLE
 };
 
@@ -81,7 +80,11 @@ const uint16_t fastSpeedforlinefollowing = 20;
 // Tuning Parameters
 const uint16_t slowSpeed = 15;
 const uint16_t fastSpeed = 30;
-const unsigned long movementDuration = 2000;  // Duration for movement forward autonomously in milliseconds
+const unsigned long movementDuration = 2000;
+const unsigned long movementDuration2 = 1000;
+ // Duration for movement forward autonomously in milliseconds
+bool isCalibrationComplete = false;
+
 
 void setup() {
   Serial.begin(57600);
@@ -120,12 +123,12 @@ void setup() {
         Serial.println("Controller refusing to enter Pressures mode, may not support it. ");
       delayMicroseconds(1000 * 1000);
     }
-    enableRXLEDFeedback(BLUE_LED);
 }
 
 void loop() {
   // Read input from PlayStation controller
   ps2x.read_gamepad();
+
 
   // Update state machine based on button input
   updateStateMachine();
