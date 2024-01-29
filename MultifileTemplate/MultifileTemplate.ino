@@ -120,17 +120,6 @@ void setup() {
         Serial.println("Controller refusing to enter Pressures mode, may not support it. ");
       delayMicroseconds(1000 * 1000);
     }
-     //use the IR control mode
-    Serial.begin(57600);
-    delay(500); // To be able to connect Serial monitor after reset or power up 
-    Serial.println(F("START " __FILE__ " from " __DATE__));
-    if (irRX.initIRReceiver()) {
-        Serial.println(F("Ready to receive NEC IR signals at pin " STR(IR_RCV_PIN)));
-    } else {
-        Serial.println("Initialization of IR receiver failed!");
-        while (1) {;}
-    }
-    // enable receive feedback and specify LED pin number (defaults to LED_BUILTIN)
     enableRXLEDFeedback(BLUE_LED);
 }
 

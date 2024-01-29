@@ -23,18 +23,20 @@ void floorCalibration()
 
 }
 
-void linefollowing()
-{
+void linefollowing() {
 
     uint32_t linePos = getLinePosition();
 
     if ((linePos > 0) && (linePos < 4000)) {    // turn left
+        setMotorDirection(BOTH_MOTORS, MOTOR_DIR_FORWARD);
         setMotorSpeed(LEFT_MOTOR, normalSpeedforlinefollowing);
         setMotorSpeed(RIGHT_MOTOR, fastSpeedforlinefollowing);
-    } else if (linePos > 5000) {                // turn right
+    } else if (linePos > 5000) {    
+        setMotorDirection(BOTH_MOTORS, MOTOR_DIR_FORWARD);            // turn right
         setMotorSpeed(LEFT_MOTOR, fastSpeedforlinefollowing);
         setMotorSpeed(RIGHT_MOTOR, normalSpeedforlinefollowing);
-    } else {                                    // go straight
+    } else {              
+        setMotorDirection(BOTH_MOTORS, MOTOR_DIR_FORWARD);                      // go straight
         setMotorSpeed(LEFT_MOTOR, normalSpeedforlinefollowing);
         setMotorSpeed(RIGHT_MOTOR, normalSpeedforlinefollowing);
     }

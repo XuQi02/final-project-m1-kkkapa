@@ -13,6 +13,7 @@ Serial.println("in the AutonomousControl function");
       case START:
         Serial.println("in Autonomous mode the current state: START");
         // Add START state instructions here
+        floorCalibration();
         AutoCurrentState = AUTO_ACTION1;  // Transition to next state
         lastActionTime = millis();  // Record the time when the forward state started
         break;
@@ -45,8 +46,10 @@ Serial.println("in the AutonomousControl function");
       case AUTO_ACTION3:
         Serial.println("in Autonomous mode the current state: AUTO_ACTION3");
         // Add state instructions here
-        spinclock();
+        turnright();
         delay(1000);  // Placeholder delay
+        forward();
+        delay(1000);
         AutoCurrentState = AUTO_ACTION4;  // Transition to next state
         break;
 
@@ -71,7 +74,7 @@ Serial.println("in the AutonomousControl function");
 
       case AUTO_ACTION6:
         Serial.println("in Autonomous mode the current state: AUTO_ACTION6");
-         if (distMM < 200) {
+         if (distMM < 20) {
           stop();
          }
          delay(1000);
