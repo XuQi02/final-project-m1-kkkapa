@@ -2,8 +2,6 @@ void floorCalibration()
 {
     /* Place Robot On Floor (no line) */
     delay(2000);
-    /* Wait until button is pressed to start robot */
-    waitBtnPressed(LP_LEFT_BTN, RED_LED);
 
     delay(500);
 
