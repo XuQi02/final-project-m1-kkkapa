@@ -44,11 +44,7 @@ Serial.println("in the AutonomousControl function");
         // Add state instructions here
         
         forward();
-         if (millis() - lastActionTime >= movementDuration2) {
-          stop(); //stop the forward movement
-          AutoCurrentState = AUTO_ACTION4;  // Transition to next state
-          lastActionTime = millis();  // Record the time when the next state started
-        }
+        delay(1500);
         break;
 
       case AUTO_ACTION4:
@@ -65,9 +61,11 @@ Serial.println("in the AutonomousControl function");
 
       case AUTO_ACTION5:
         Serial.println("in Autonomous mode the current state: AUTO_ACTION6");
+        if(distMM < 20){
+          stop();
+          myservo.write(40);
+        }
         
-        myservo.write(40);
-        delay(1000);
         AutoCurrentState = IDLE;
         break; 
 
@@ -76,8 +74,7 @@ Serial.println("in the AutonomousControl function");
         break;
     }
   }
-  // The code will exit the while loop when IDLE state is reached
+
   Serial.println("State: IDLE");
-  // Add IDLE state instructions here
 
 }

@@ -128,8 +128,7 @@ void setup() {
 void loop() {
   // Read input from PlayStation controller
   ps2x.read_gamepad();
-
-
+  uint32_t linePos = getLinePosition();
   // Update state machine based on button input
   updateStateMachine();
 
